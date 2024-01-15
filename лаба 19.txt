@@ -1,0 +1,603 @@
+#include <iostream>
+#include <string>
+#include "Windows.h"
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	char symbol = 0;
+	int x;
+	int y;
+	int size;
+	int typeoffigure;
+	int length;
+	int width;
+	int base = 0;
+	int height = 0;
+	if (height % 2 == 0) {
+		height++;
+	}
+	int triangle = 0;
+	int a = 0;
+
+
+
+
+	cout << "[+] Геометрические фигуры" << endl;
+	cout << "[1] Линия \n";
+	cout << "[2] Квадрат \n";
+	cout << "[3] Прямоугольник \n";
+	cout << "[4] Треугольник \n";
+	cout << "[5] Решетка \n";
+	cout << "[6] Крестик \n";
+	cout << "[7] Плюсик \n";
+	cout << "[8] Ромбик \n";
+		cout << "[+] Выберите фигуру: "; cin >> typeoffigure;
+	system("cls");
+
+	if (typeoffigure == 1) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Выберите размер фигуры: "; cin >> size;
+		for (int x = 0; x < size; x++) {
+			cout << symbol;
+		}
+	}
+
+	if (typeoffigure == 2) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Выберите размер фигуры: "; cin >> size;
+
+		for (int x = 1; x <= size; x++) {
+			for (int y = 1; y <= size; y++) {
+				if (x != 0) {
+					cout << symbol;
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 3) {
+
+		cout << "Выберите тип: \n";
+		cout << "[1] Заполненный \n";
+		cout << "[2] Пустой \n";
+		int answer;
+		cout << "Число: "; cin >> answer;
+		if (answer == 2) {
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Выберите высоту прямоугольника: "; cin >> length;
+			cout << endl;
+			cout << "Выберите ширину прямоугольника: "; cin >> width;
+			system("cls");
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < length; y++) {
+					if (x > 0 && y > 0 && x < width - 1 && y < length - 1) {
+						cout << "  ";
+
+					}
+					else {
+						cout << symbol << " ";
+					}
+				}
+				cout << endl;
+			}
+		}
+		else {
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Выберите высоту прямоугольника: "; cin >> length;
+			cout << endl;
+			cout << "Выберите ширину прямоугольника: "; cin >> width;
+			system("cls");
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < length; y++) {
+					cout << symbol;
+				}
+				cout << endl;
+			}
+		}
+	}
+
+	if (typeoffigure == 4) {
+		string triangle;
+		cout << "Выберите тип: \n";
+		cout << "[1] Заполненный \n";
+		cout << "[2] Пустой \n";
+		int answer;
+		int height = 0;
+		if (height % 2 == 0) {
+			height++;
+		}
+
+		cout << "Число: "; cin >> answer;
+		if (answer == 1) {
+			cout << "Высота: \n";
+			cin >> height;
+			cout << "Текстура: \n";
+			cin >> triangle;
+			int base = height + height - 1;
+			int a = base / 2;
+			for (int y = 0; y <= height; y++) {
+				for (int x = 0; x < base; x++) {
+					if (x > a - y && x < a + y) {
+						cout << triangle << " ";
+					}
+					else {
+						cout << "  ";
+					}
+				}
+				cout << endl;
+			}
+		}
+		else {
+
+
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Высота: ";
+			cin >> height;
+			cout << endl;
+			system("cls");
+			for (int y = 0; y < height; y++) {
+				for (int x = 0; x < height; x++) {
+					if (x == height / 2 - y || x == height / 2 + y || y == height / 2) {
+						cout << symbol;
+
+					}
+					else {
+						cout << " ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+	}
+	if (typeoffigure == 5) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+
+		if (size % 2 != 1) {
+			size++;
+		}
+
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x > 0 && y > 0 && x < size - 1 && y < size - 1) {
+					if (y % 2 == 0 || x % 2 == 0) {
+						cout << symbol << " ";
+					}
+					else {
+						cout << "  ";
+
+					}
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 6) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+		if (size % 2 == 0) {
+			size++;
+		}
+
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x == y || x + y == size - 1) {
+					cout << symbol << " ";
+				}
+				else {
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 7) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+		
+		int centre;
+		centre = size / 2;
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x == centre || y == centre) {
+					cout << symbol << " ";
+				}
+				else {
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 8) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+
+		for (int x = 1; x <= size; x++) {
+			for (int y = 1; y <= size - x; y++) {
+				cout << " ";
+			}
+			for (int c = 1; c <= 2 * x - 1; c++) {
+				cout << symbol;
+			}
+			cout << endl;
+		}
+
+		for (int x = size - 1; x >= 1; x--) {
+			for (int y = 1; y <= size - x; y++) {
+				cout << " ";
+			}
+			for (int c = 1; c <= 2 * x - 1; c++) {
+				cout << symbol;
+			}
+			cout << endl;
+
+		}
+
+	}
+
+
+
+
+}
+
+
+___________________________________________________________________________
+
+#include <iostream>
+#include <string>
+#include "Windows.h"
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	char symbol = 0;
+	int x;
+	int y;
+	int size;
+	int typeoffigure;
+	int length;
+	int width;
+	int base = 0;
+	int height = 0;
+	if (height % 2 == 0) {
+		height++;
+	}
+	int triangle = 0;
+	int a = 0;
+
+
+
+
+	cout << "[+] Геометрические фигуры" << endl;
+	cout << "[1] Линия \n";
+	cout << "[2] Квадрат \n";
+	cout << "[3] Прямоугольник \n";
+	cout << "[4] Треугольник \n";
+	cout << "[5] Решетка \n";
+	cout << "[6] Крестик \n";
+	cout << "[7] Плюсик \n";
+	cout << "[8] Ромбик \n";
+	cout << "[9] Квадрат в квадратике \n";
+	cout << "[+] Выберите фигуру: "; cin >> typeoffigure;
+	system("cls");
+
+	if (typeoffigure == 1) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Выберите размер фигуры: "; cin >> size;
+		for (int x = 0; x < size; x++) {
+			cout << symbol;
+		}
+	}
+
+	if (typeoffigure == 2) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Выберите размер фигуры: "; cin >> size;
+
+		for (int x = 1; x <= size; x++) {
+			for (int y = 1; y <= size; y++) {
+				if (x != 0) {
+					cout << symbol;
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 3) {
+
+		cout << "Выберите тип: \n";
+		cout << "[1] Заполненный \n";
+		cout << "[2] Пустой \n";
+		int answer;
+		cout << "Число: "; cin >> answer;
+		if (answer == 2) {
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Выберите высоту прямоугольника: "; cin >> length;
+			cout << endl;
+			cout << "Выберите ширину прямоугольника: "; cin >> width;
+			system("cls");
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < length; y++) {
+					if (x > 0 && y > 0 && x < width - 1 && y < length - 1) {
+						cout << "  ";
+
+					}
+					else {
+						cout << symbol << " ";
+					}
+				}
+				cout << endl;
+			}
+		}
+		else {
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Выберите высоту прямоугольника: "; cin >> length;
+			cout << endl;
+			cout << "Выберите ширину прямоугольника: "; cin >> width;
+			system("cls");
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < length; y++) {
+					cout << symbol;
+				}
+				cout << endl;
+			}
+		}
+	}
+
+	if (typeoffigure == 4) {
+		string triangle;
+		cout << "Выберите тип: \n";
+		cout << "[1] Заполненный \n";
+		cout << "[2] Пустой \n";
+		int answer;
+		int height = 0;
+		if (height % 2 == 0) {
+			height++;
+		}
+
+		cout << "Число: "; cin >> answer;
+		if (answer == 1) {
+			cout << "Высота: \n";
+			cin >> height;
+			cout << "Текстура: \n";
+			cin >> triangle;
+			int base = height + height - 1;
+			int a = base / 2;
+			for (int y = 0; y <= height; y++) {
+				for (int x = 0; x < base; x++) {
+					if (x > a - y && x < a + y) {
+						cout << triangle << " ";
+					}
+					else {
+						cout << "  ";
+					}
+				}
+				cout << endl;
+			}
+		}
+		else {
+
+
+			cout << "Выберите текстуру фигуры: "; cin >> symbol;
+			cout << endl;
+			cout << "Высота: ";
+			cin >> height;
+			cout << endl;
+			system("cls");
+			for (int y = 0; y < height; y++) {
+				for (int x = 0; x < height; x++) {
+					if (x == height / 2 - y || x == height / 2 + y || y == height / 2) {
+						cout << symbol;
+
+					}
+					else {
+						cout << " ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+	}
+	if (typeoffigure == 5) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+
+		if (size % 2 != 1) {
+			size++;
+		}
+
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x > 0 && y > 0 && x < size - 1 && y < size - 1) {
+					if (y % 2 == 0 || x % 2 == 0) {
+						cout << symbol << " ";
+					}
+					else {
+						cout << "  ";
+
+					}
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 6) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+		if (size % 2 == 0) {
+			size++;
+		}
+
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x == y || x + y == size - 1) {
+					cout << symbol << " ";
+				}
+				else {
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 7) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+
+		int centre;
+		centre = size / 2;
+		for (int y = 0; y < size; y++) {
+			for (int x = 0; x < size; x++) {
+				if (x == centre || y == centre) {
+					cout << symbol << " ";
+				}
+				else {
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	if (typeoffigure == 8) {
+		cout << "Выберите текстуру фигуры: "; cin >> symbol;
+		cout << endl;
+		cout << "Размер фигуры: "; cin >> size;
+		system("cls");
+
+		for (int x = 1; x <= size; x++) {
+			for (int y = 1; y <= size - x; y++) {
+				cout << " ";
+			}
+			for (int c = 1; c <= 2 * x - 1; c++) {
+				cout << symbol;
+			}
+			cout << endl;
+		}
+
+		for (int x = size - 1; x >= 1; x--) {
+			for (int y = 1; y <= size - x; y++) {
+				cout << " ";
+			}
+			for (int c = 1; c <= 2 * x - 1; c++) {
+				cout << symbol;
+			}
+			cout << endl;
+
+		}
+
+	}
+
+	if (typeoffigure == 9) {
+		cout << "Введите размер квадратика: \n"; cin >> size;
+		cout << "Введите текстуру фигуры: "; cin >> symbol;
+		if (size % 2 == 0) {
+			size++;
+		}
+		
+			for (int y = 0; y < size; y++) {
+				for (int x = 0; x < size; x++) {
+					bool top = y % 2 == 0 && x >= y && size - y > x;
+					bool left = x % 2 == 0 && y >= x && size - x > y;
+					bool right = x % 2 == 0 && y <= x && size - x <= y;
+					bool bottom = y % 2 == 0 && x <= y && size - y <= x;
+
+					if (top || left || right || bottom) {
+						cout << symbol;
+					}
+					else {
+						cout << " ";
+					}
+
+				}
+				cout << endl;
+			}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
